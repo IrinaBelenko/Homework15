@@ -5,7 +5,7 @@ import io.reactivex.Single
 import retrofit2.http.GET
 
 interface ApiInterface {
-    @GET("/v1/forecast?latitude=52.52&longitude=13.41")
+    @GET("/v1/forecast?latitude=52&longitude=13")
     fun getMeteo(): Single<MeteoResponse>
 }
 
@@ -13,7 +13,7 @@ data class MeteoResponse(
     val latitude: Long,
     val longitude: Long,
     @SerializedName("generationtime_ms")
-    val generationtimems: Long,
+    val generationtimems: Double,
     @SerializedName("utc_offset_seconds")
     val utcOffsetSeconds: Int,
     val timezone: String,

@@ -21,9 +21,12 @@ class MainActivity : AppCompatActivity() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-               textContent.text = "${it.timezone} ${it.elevation}"
+               textContent.text = "timezone: ${it.timezone} \n" +
+                       "elevation: ${it.elevation} \n" +
+                       "latitude: ${it.latitude} \n" +
+                       "longitude: ${it.longitude}"
            }, {
-               Toast.makeText(this, "Request error", Toast.LENGTH_SHORT).show()
+               Toast.makeText(this, "Request error  ${it.message}", Toast.LENGTH_LONG).show()
             })
 
         }
